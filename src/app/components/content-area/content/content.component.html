@@ -1,23 +1,52 @@
-<div class="jumbotron hero">
+<div class="hero">
   <div class="container">
     <h1 class="display-4 text-center header mb-5">SEARCH</h1>
-    <form >
+    <form>
       <div class="row">
         <div class="col-8">
           <div class="form-group">
             <label for="searchQuery" class="sr-only">Search</label>
-            <input type="text" name="searchQuery" [(ngModel)]="searchQuery"  class="form-control form-control-lg" placeholder="Search iTunes..." >
-
+            <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
+              placeholder="Search iTunes...">
           </div>
         </div>
         <div class="col-4">
-            <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">Get All</button>
-          </div>
+          <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">Get All</button>
+        </div>
       </div>
     </form>
   </div>
 </div>
-<div class="container" >
+<div class="container mt-5">
+  <ng-container *ngIf="loading">
+    <div class="loading"></div>
+  </ng-container>
+
+
+  <div *ngFor="let user of data">
+    <div class="row">
+      <div class="col-12">
+        <div class="media mb-5">
+          <img class="align-self-start mr-5" src="{{user.artworkUrl100}}" alt="image">
+          <div class="media-body">
+            <h2 class="mt-0">{{user.collectionName}}</h2>
+            <h5 class="mt-0">{{user.artistName}}</h5>
+          </div>
+          <div class="">
+          <div class="float-right col-12">
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Add</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!--    
   <table class="table">
     <thead class="thead-light">
       <tr>
@@ -37,5 +66,5 @@
         <td>{{user.collectionPrice}}</td>
       </tr>
     </tbody>
-  </table>
+  </table>-->
 </div>
