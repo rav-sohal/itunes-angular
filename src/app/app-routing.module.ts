@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home' , pathMatch:'full'},
   { path: 'home', component: HomeViewComponent},
 ];
 

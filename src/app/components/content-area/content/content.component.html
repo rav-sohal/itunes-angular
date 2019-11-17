@@ -1,12 +1,41 @@
-  <div class="jumbotron hero">
-    <div class="container">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-      featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+<div class="jumbotron hero">
+  <div class="container">
+    <h1 class="display-4 text-center header mb-5">SEARCH</h1>
+    <form >
+      <div class="row">
+        <div class="col-8">
+          <div class="form-group">
+            <label for="searchQuery" class="sr-only">Search</label>
+            <input type="text" name="searchQuery" [(ngModel)]="searchQuery"  class="form-control form-control-lg" placeholder="Search iTunes..." >
+
+          </div>
+        </div>
+        <div class="col-4">
+            <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">Get All</button>
+          </div>
+      </div>
+    </form>
   </div>
-  </div>
+</div>
+<div class="container" >
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Artwork</th>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of data">
+        <td><img src="{{user.artworkUrl60}}"></td>
+        <td>{{user.artistName}}</td>
+        <td>{{user.collectionName}}</td>
+        <td>{{user.primaryGenreName}}</td>
+        <td>{{user.collectionPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

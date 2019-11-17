@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -9,18 +9,19 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class ApiService {
 
-  api: string = 'https://itunes.apple.com/search?term=drake';
+  api: string = 'https://itunes.apple.com/search?term=';
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  getAll(): Observable<any> {
-    return this.http.get<any>(this.api)
-      .pipe(
-        catchError(this.handleError)
-      );
+  getAll(searchTerm): Observable<any> {
+    return this.http.get(this.api + searchTerm + '&entity=album&limit=10')
+    .pipe(
+      catchError(this.handleError)
+    );
   }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.log(error.error.message)

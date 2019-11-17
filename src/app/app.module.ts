@@ -7,7 +7,7 @@ import { ContentComponent } from './components/content-area/content/content.comp
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientXsrfModule
+    HttpClientXsrfModule,
+    FormsModule 
     ],
   providers: [],
   bootstrap: [AppComponent]

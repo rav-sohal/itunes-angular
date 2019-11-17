@@ -1,0 +1,13 @@
+{
+    "/api": {
+      "target": "https://itunes.apple.com/search?term=drake",
+      "secure": true,
+      "changeOrigin": true,
+      "protocol": "https"
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+}

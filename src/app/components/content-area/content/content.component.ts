@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { ApiService } from '../../../services/api.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+
 
 
 @Component({
@@ -8,17 +10,28 @@ import { ApiService } from '../../../services/api.service';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent {
+
+  public data = [];
+  public apiData: any;
+  searchQuery : string = "";
 
   constructor(private service: ApiService) { }
-  private http: HttpClient
-  ngOnInit() {
-    this.getApi();
+
+  getAll() {
+    this.service.getAll(this.searchQuery).subscribe((results) => {
+      console.log('Data is received - Result - ', results);
+      this.data = results.results;
+    })
   }
 
-  private getApi() {
-    this.service.getAll().subscribe((data) => {
-      console.log('Data' + data);
+  Search(){
+   this.service.getAll(this.searchQuery).subscribe((results) => {
+      console.log('Data is received - Result - ', results);
+      this.data = results.results;
     })
+}
+  ngOnInit() {
+    
   }
 }
