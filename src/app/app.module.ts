@@ -10,7 +10,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientXsrfModule,
     FormsModule,
     NgxPaginationModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    Ng2SearchPipeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
