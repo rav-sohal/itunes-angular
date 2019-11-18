@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-content',
@@ -20,9 +21,9 @@ export class ContentComponent {
   faSearch = faSearch;
   faRedo = faRedo;
   faHeadphones = faHeadphones;
+  faExternalLinkAlt = faExternalLinkAlt;
 
   searchQuery : string = "";
-
 
   constructor(private service: ApiService) { }
 
