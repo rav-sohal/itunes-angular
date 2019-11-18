@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  
+  faHeadphones = faHeadphones;
+  
   constructor() { }
 
   ngOnInit() {

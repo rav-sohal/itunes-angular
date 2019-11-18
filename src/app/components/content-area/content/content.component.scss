@@ -2,8 +2,12 @@
     padding: 50px 0px 50px 0px
 }
 
+.artwork {
+    width: 100%;
+}
+
 .hero {
-    height: 400px;
+    height: auto;
     width: 100%;
     padding-top: 50px;
     background-image: url('../../../../assets/images/background-image.jpg');
@@ -12,6 +16,8 @@
     color: #ffffff;
     border-radius: 0px;
     margin-bottom: 25px;
+    background-size: cover;
+    background-color: aqua;
   }
 
   .thead-light {
@@ -19,7 +25,7 @@
 }
 
 .header {
-    font-size: 5em;
+    font-size: 3.5em;
     font-weight: bold;
 }
 
@@ -33,3 +39,25 @@
    margin-right: auto;
    margin-bottom: 25px;
 }
+
+.table-pagination {
+    text-align: center;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #232323;
+  }
+
+  .my-pagination /deep/ .ngx-pagination{
+    padding-left: 0px!important;
+  }
+
+  .my-pagination /deep/ .ngx-pagination a, .ngx-pagination button{
+    text-decoration: none!important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .artwork  {
+      margin-bottom: 15px!important;
+    }
+  }

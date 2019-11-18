@@ -1,31 +1,45 @@
 <div class="hero">
   <div class="container">
-    <h1 class="display-4 text-center header mb-5">SEARCH</h1>
+    <h1 class="display-4 text-center header mb-3">SEARCH iTunes</h1>
+    <p class="mb-4">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
+      recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
     <form>
       <div class="row">
-        <div class="col-8">
+        <div class="col-sm-12 col-md-9 col-lg-10">
           <div class="form-group">
             <label for="searchQuery" class="sr-only">Search</label>
             <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
               placeholder="Search iTunes...">
           </div>
         </div>
-        <div class="col-4">
-          <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">Get All</button>
+        <div class="col-sm-12 col-md-3 col-lg-2 mb-5">
+          <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">
+            <fa-icon [icon]="faSearch"></fa-icon> Search
+          </button>
         </div>
       </div>
     </form>
   </div>
 </div>
 <div class="container mt-5">
+  <button type="button" (click)="refresh()" class="btn btn-info btn-lg mb-5" *ngIf='data.length >= 1'><span
+      class="oi oi-reload"></span>
+    <fa-icon [icon]="faRedo"></fa-icon> Start again
+  </button>
   <ng-container *ngIf="loading">
     <div class="loading"></div>
   </ng-container>
-
-
-  <div *ngFor="let user of data">
+  <div *ngFor="let user of data | paginate: { itemsPerPage: 10, currentPage: p }">
     <div class="row">
-      <div class="col-12">
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <img class="align-self-start mr-5 mb-5 artwork" src="{{user.artworkUrl100}}" alt="image">
+      </div>
+      <div class="col-md-8 col-lg-8 col-sm-12">
+        <h2 class="mt-0">{{user.collectionName}}</h2>
+        <h5 class="mt-0">{{user.artistName}}</h5>
+      </div>
+      <div class="col-md-2 mb-5 col-lg-2 col-sm-12"> <button type="button" class="btn btn-secondary btn-lg btn-block">Add</button></div>
+      <!-- <div class="col-12">
         <div class="media mb-5">
           <img class="align-self-start mr-5" src="{{user.artworkUrl100}}" alt="image">
           <div class="media-body">
@@ -33,19 +47,17 @@
             <h5 class="mt-0">{{user.artistName}}</h5>
           </div>
           <div class="">
-          <div class="float-right col-12">
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Add</button>
-          </div>
+            <div class="float-right col-12">
+              <button type="button" class="btn btn-secondary btn-lg btn-block">Add</button>
+            </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
-
-
-
-
-
+  <div class="table-pagination mb-5" *ngIf='data.length >= 1'>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+  </div>
   <!--    
   <table class="table">
     <thead class="thead-light">

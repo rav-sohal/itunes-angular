@@ -16,7 +16,7 @@ export class ApiService {
   ) { }
 
   getAll(searchTerm): Observable<any> {
-    return this.http.get(this.api + searchTerm + '&entity=album&limit=10')
+    return this.http.get(this.api + searchTerm + '&entity=album')
     .pipe(
       catchError(this.handleError)
     );

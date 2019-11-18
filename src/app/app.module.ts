@@ -6,8 +6,11 @@ import { FooterComponent } from './components/footer/footer/footer.component';
 import { ContentComponent } from './components/content-area/content/content.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     HttpClientXsrfModule,
-    FormsModule 
+    FormsModule,
+    NgxPaginationModule,
+    FontAwesomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
