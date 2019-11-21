@@ -9,7 +9,7 @@
           <div class="form-group">
             <label for="searchQuery" class="sr-only">Search</label>
             <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
-              placeholder="Search iTunes...">
+              placeholder="Search iTunes..." required>
           </div>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-2 mb-5">
@@ -21,21 +21,32 @@
     </form>
   </div>
 </div>
+<ng-container *ngIf="noData">
+  <div class="container">
+    <div class="alert alert-danger fade show" role="alert">
+      <strong>Holy guacamole!</strong> Your search did not bring any results!
+      <button type="button" class="close" (click)="closeAlert()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</ng-container>
 <div class="container mt-5">
   <div class='filter-bar' *ngIf='data.length >= 1'>
     <div class="row">
       <div class="col-md-8 col-sm-12">
-          <button type="button" (click)="refresh()" class="btn btn-danger btn-lg mb-5"><span
-            class="oi oi-reload"></span>
+        <button type="button" (click)="refresh()" class="btn btn-danger btn-lg mb-5"><span class="oi oi-reload"></span>
           <fa-icon [icon]="faRedo"></fa-icon> Start again
-        </button>      
+        </button>
       </div>
       <div class="col-md-4 col-sm-12">
-          <input class="form-control form-control-lg mb-3 float-right" type="text" placeholder="Filter results..." name="search" [(ngModel)]="filter">
+        <input class="form-control form-control-lg mb-3 float-right" type="text" placeholder="Filter results..."
+          name="search" [(ngModel)]="filter">
       </div>
-    </div>      
+    </div>
   </div>
   <ng-container *ngIf="loading">
+    <div *ngIf="!isloading"></div>
     <div class="loading"></div>
   </ng-container>
   <div *ngFor="let itunes of data | paginate: { itemsPerPage: 10, currentPage: p } | filter:filter; let i = index">
@@ -69,7 +80,7 @@
   <div class="table-pagination mb-5" *ngIf='data.length >= 1'>
     <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
   </div>
-  <!--    
+  <!--
   <table class="table">
     <thead class="thead-light">
       <tr>

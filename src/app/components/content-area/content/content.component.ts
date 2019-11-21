@@ -4,8 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
-import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
-import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons';
+import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-content',
@@ -17,13 +17,14 @@ export class ContentComponent {
   public data = [];
   public apiData: any;
   public loading = false;
+  public noData: any;
   p: number = 1;
   faSearch = faSearch;
   faRedo = faRedo;
   faHeadphones = faHeadphones;
   faExternalLinkAlt = faExternalLinkAlt;
-
-  searchQuery : string = "";
+  searchQuery: string = "";
+  clickMessage = '';
 
   constructor(private service: ApiService) { }
 
@@ -31,24 +32,36 @@ export class ContentComponent {
     this.service.getAll(this.searchQuery).subscribe((results) => {
       this.loading = true;
       console.log('Data is received - Result - ', results);
-      this.loading = false;
       this.data = results.results;
+      this.loading = false;
+
+      if (this.data.length <= 0) {
+        this.noData = true;
+      } else if (this.data.length >= 1) {
+        this.noData = false;
+      } else {
+        this.noData = false;
+      }
     })
+  }
+
+  closeAlert() {
+    this.noData = false;
   }
 
   refresh(): void {
     window.location.reload();
-  }  
+  }
 
-  Search(){
-   this.service.getAll(this.searchQuery).subscribe((results) => {
+  Search() {
+    this.service.getAll(this.searchQuery).subscribe((results) => {
       this.loading = true;
       console.log('Data is received - Result - ', results);
-      this.loading = false;
       this.data = results.results;
+      this.loading = false;
     })
-}
+  }
   ngOnInit() {
-    
+
   }
 }
