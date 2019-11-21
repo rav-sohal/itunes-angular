@@ -6,6 +6,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-content',
@@ -15,7 +17,9 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 export class ContentComponent {
 
   public data = [];
+  public playlist = [];
   public apiData: any;
+  public results = [];
   public loading = false;
   public noData: any;
   p: number = 1;
@@ -23,6 +27,8 @@ export class ContentComponent {
   faRedo = faRedo;
   faHeadphones = faHeadphones;
   faExternalLinkAlt = faExternalLinkAlt;
+  faPlus = faPlus;
+
   searchQuery: string = "";
   clickMessage = '';
 
@@ -48,6 +54,11 @@ export class ContentComponent {
   closeAlert() {
     this.noData = false;
   }
+
+  addSongToPlaylist(itunes) {
+    this.playlist.push(itunes);
+    console.log(this.playlist);
+}
 
   refresh(): void {
     window.location.reload();

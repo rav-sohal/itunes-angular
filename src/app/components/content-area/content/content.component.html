@@ -1,19 +1,19 @@
 <div class="hero">
   <div class="container">
-    <h1 class="display-4 text-center header mb-3">SEARCH iTunes</h1>
-    <p class="mb-4">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
+    <h1 class="display-4 text-center header mb-3">SEARCH BOX</h1>
+    <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
       recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
     <form>
       <div class="row">
-        <div class="col-sm-12 col-md-9 col-lg-10">
+        <div class="col-sm-12 col-md-8 col-lg-8">
           <div class="form-group">
             <label for="searchQuery" class="sr-only">Search</label>
             <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
               placeholder="Search iTunes..." required>
           </div>
         </div>
-        <div class="col-sm-12 col-md-3 col-lg-2 mb-5">
-          <button type="button" (click)="getAll()" class="btn btn-primary btn-block btn-lg">
+        <div class="col-sm-12 col-md-4 col-lg-4 mb-5">
+          <button type="button" (click)="getAll()" class="btn btn-info btn-block btn-lg">
             <fa-icon [icon]="faSearch"></fa-icon> Search
           </button>
         </div>
@@ -57,10 +57,15 @@
       <div class="col-md-8 col-lg-8 col-sm-12">
         <h2 class="mt-0 d-inline-block text-truncate trunc">{{itunes.collectionName}}</h2>
         <h4 class="mt-0 mb-3">{{itunes.artistName}}</h4>
+        <h5 class="mt-0 mb-3"><a href="{{itunes.collectionViewUrl}}" target="_blank">Listen</a></h5>
       </div>
-      <div class="col-md-2 mb-5 col-lg-2 col-sm-12"><a href="{{itunes.collectionViewUrl}}" target="_blank"><button
-            type="button" class="btn btn-light btn-lg btn-block">Listen <fa-icon [icon]="faExternalLinkAlt">
-            </fa-icon></button></a></div>
+      <div class="col-md-2 mb-5 col-lg-2 col-sm-12">
+        <a target="_blank"><button type="button" class="btn btn-light btn-lg float-right"
+            (click)="addSongToPlaylist(itunes)">
+            <fa-icon [icon]="faPlus">
+            </fa-icon>
+          </button></a>
+      </div>
       <!-- <div class="col-12">
         <div class="media mb-5">
           <img class="align-self-start mr-5" src="{{user.artworkUrl100}}" alt="image">
