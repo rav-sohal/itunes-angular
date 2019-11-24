@@ -1,14 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { ApiService } from '../../../services/api.service';
-import { FormGroup, FormControl } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../../../services/playlist.service';
-
 
 @Component({
   selector: 'app-content',
@@ -53,12 +50,17 @@ export class ContentComponent {
     })
   }
 
+  savePlaylist() {
+    localStorage.setItem('playlist', JSON.stringify(this.list.playlist));
+    console.log('Saved', this.list.playlist);
+  }
+
   closeAlert() {
     this.noData = false;
   }
 
   addSongToPlaylist(itunes) {
-    this.list.playlist.push(itunes);
+    this.list.playlist.push(Object.assign({},itunes));
     console.log('Playlist - ', this.list.playlist);
 }
 

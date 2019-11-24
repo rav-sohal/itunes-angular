@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playlist-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    HomeViewComponent
+    HomeViewComponent,
+    PlaylistViewComponent
     ],
   imports: [
     BrowserModule,

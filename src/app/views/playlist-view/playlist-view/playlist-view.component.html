@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <table class="table mt-3 mb-3">
+    <thead class="thead-light">
+      <tr>
+        <th>Artwork</th>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of list.playlist">
+        <td><img src="{{user.artworkUrl60}}"></td>
+        <td>{{user.artistName}}</td>
+        <td>{{user.collectionName}}</td>
+        <td>{{user.primaryGenreName}}</td>
+        <td>{{user.collectionPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<app-footer></app-footer>
