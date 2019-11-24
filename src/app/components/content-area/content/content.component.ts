@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -7,6 +7,7 @@ import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { PlaylistService } from '../../../services/playlist.service';
 
 
 @Component({
@@ -17,7 +18,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class ContentComponent {
 
   public data = [];
-  public playlist = [];
   public apiData: any;
   public results = [];
   public loading = false;
@@ -28,14 +28,16 @@ export class ContentComponent {
   faHeadphones = faHeadphones;
   faExternalLinkAlt = faExternalLinkAlt;
   faPlus = faPlus;
-
   searchQuery: string = "";
   clickMessage = '';
 
-  constructor(private service: ApiService) { }
+  constructor(
+    private api: ApiService, 
+    private list: PlaylistService
+  ) { }
 
   getAll() {
-    this.service.getAll(this.searchQuery).subscribe((results) => {
+    this.api.getAll(this.searchQuery).subscribe((results) => {
       this.loading = true;
       console.log('Data is received - Result - ', results);
       this.data = results.results;
@@ -56,8 +58,8 @@ export class ContentComponent {
   }
 
   addSongToPlaylist(itunes) {
-    this.playlist.push(itunes);
-    console.log(this.playlist);
+    this.list.playlist.push(itunes);
+    console.log('Playlist - ', this.list.playlist);
 }
 
   refresh(): void {
@@ -65,7 +67,7 @@ export class ContentComponent {
   }
 
   Search() {
-    this.service.getAll(this.searchQuery).subscribe((results) => {
+    this.api.getAll(this.searchQuery).subscribe((results) => {
       this.loading = true;
       console.log('Data is received - Result - ', results);
       this.data = results.results;

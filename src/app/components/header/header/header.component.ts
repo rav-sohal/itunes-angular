@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
+import { PlaylistService } from '../../../services/playlist.service';
 
 
 @Component({
@@ -10,8 +11,15 @@ import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent implements OnInit {
   
   faHeadphones = faHeadphones;
+
+  //@Input()playlist= [];
   
-  constructor() { }
+  constructor(private list: PlaylistService) { }
+
+  addSongToPlaylist(itunes) {
+    this.list.playlist.push(itunes);
+    console.log('Playlist - ', this.list.playlist);
+}
 
   ngOnInit() {
   }

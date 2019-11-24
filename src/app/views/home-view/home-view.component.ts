@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+
 
 @Component({
   selector: 'app-home-view',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeViewComponent implements OnInit {
 
-  constructor() { }
+  public playlist = [];
+
+  constructor(private service: ApiService,
+    ) { }
 
   ngOnInit() {
   }
