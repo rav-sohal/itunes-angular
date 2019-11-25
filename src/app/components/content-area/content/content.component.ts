@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +29,7 @@ export class ContentComponent {
   clickMessage = '';
 
   constructor(
-    private api: ApiService, 
+    private api: ApiService,
     private list: PlaylistService
   ) { }
 
@@ -50,19 +50,14 @@ export class ContentComponent {
     })
   }
 
-  savePlaylist() {
-    localStorage.setItem('playlist', JSON.stringify(this.list.playlist));
-    console.log('Saved', this.list.playlist);
-  }
-
   closeAlert() {
     this.noData = false;
   }
 
   addSongToPlaylist(itunes) {
-    this.list.playlist.push(Object.assign({},itunes));
+    this.list.playlist.push(Object.assign({}, itunes));
     console.log('Playlist - ', this.list.playlist);
-}
+  }
 
   refresh(): void {
     window.location.reload();
@@ -77,6 +72,5 @@ export class ContentComponent {
     })
   }
   ngOnInit() {
-
   }
 }
