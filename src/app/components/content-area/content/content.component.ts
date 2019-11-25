@@ -42,7 +42,7 @@ export class ContentComponent {
 
       if (this.data.length <= 0) {
         this.noData = true;
-      } else if (this.data.length >= 1) {
+      } else if (this.data.length) {
         this.noData = false;
       } else {
         this.noData = false;
@@ -56,7 +56,9 @@ export class ContentComponent {
 
   addSongToPlaylist(itunes) {
     this.list.playlist.push(Object.assign({}, itunes));
+    this.list.savePlaylist();
     console.log('Playlist - ', this.list.playlist);
+
   }
 
   refresh(): void {
@@ -71,6 +73,8 @@ export class ContentComponent {
       this.loading = false;
     })
   }
+  
   ngOnInit() {
+    this.list.getPlaylist();
   }
 }

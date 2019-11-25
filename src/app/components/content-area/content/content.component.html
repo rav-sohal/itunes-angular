@@ -4,7 +4,7 @@
     <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
       recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
       
-      <table class="table">
+      <!-- <table class="table">
           <thead class="thead-light">
             <tr>
               <th>Artwork</th>
@@ -26,9 +26,9 @@
         </table>
 
         <button (click)="this.list.savePlaylist()" class="btn btn-info mb-3">
-            <!-- <fa-icon [icon]="faSave"></fa-icon> --> Save 
+             <fa-icon [icon]="faSave"></fa-icon>  Save 
           </button>
-      
+       -->
 
     <form>
       <div class="row">
@@ -93,44 +93,9 @@
             </fa-icon>
           </button></a>
       </div>
-      <!-- <div class="col-12">
-        <div class="media mb-5">
-          <img class="align-self-start mr-5" src="{{user.artworkUrl100}}" alt="image">
-          <div class="media-body">
-            <h2 class="mt-0">{{user.collectionName}}</h2>
-            <h5 class="mt-0">{{user.artistName}}</h5>
-          </div>
-          <div class="">
-            <div class="float-right col-12">
-              <button type="button" class="btn btn-secondary btn-lg btn-block">Add</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
   <div class="table-pagination mb-5" *ngIf='data.length >= 1'>
     <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
   </div>
-  <!--
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th>Artwork</th>
-        <th>Artist</th>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of data">
-        <td><img src="{{user.artworkUrl60}}"></td>
-        <td>{{user.artistName}}</td>
-        <td>{{user.collectionName}}</td>
-        <td>{{user.primaryGenreName}}</td>
-        <td>{{user.collectionPrice}}</td>
-      </tr>
-    </tbody>
-  </table>-->
 </div>

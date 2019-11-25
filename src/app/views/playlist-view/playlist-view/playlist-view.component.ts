@@ -12,8 +12,9 @@ export class PlaylistViewComponent implements OnInit {
   faSave = faSave;
 
   constructor(private list: PlaylistService) { }
-  
+
   ngOnInit() {
     this.list.getPlaylist();
+
   }
 }

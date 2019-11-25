@@ -1,8 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <fa-icon [icon]="faHeadphones"></fa-icon>
+      MUSICBOX
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link ml-5" [routerLink]="['/home']" href="#">Search</a>
+        <a class="nav-link ml-3" [routerLink]="['/playlist']" href="#">About</a>
+      </div>
+    </div>
+    <span class="navbar-text">
+        <button type="button" class="btn btn-dark" [routerLink]="['/playlist']">
+            <b class="mr-2">Playlist</b> <span class="badge badge-light"> {{list.playlist.length}}</span>
+          </button>
+      </span>
+  </div>
+</nav>
+
+<!-- 
+
 <nav class="navbar navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">
       <fa-icon [icon]="faHeadphones"></fa-icon>
-      Navbar
+      MUSICBOX
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,4 +51,4 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
