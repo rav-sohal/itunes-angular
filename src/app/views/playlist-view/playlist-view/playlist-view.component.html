@@ -8,17 +8,30 @@
         <th>Title</th>
         <th>Genre</th>
         <th>Price</th>
+        <th>Listen</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of list.playlist">
+      <tr *ngFor="let user of list.playlist | paginate: { itemsPerPage: 5, currentPage: p }">
         <td><img src="{{user.artworkUrl60}}"></td>
         <td>{{user.artistName}}</td>
         <td>{{user.collectionName}}</td>
         <td>{{user.primaryGenreName}}</td>
         <td>{{user.collectionPrice}}</td>
+        <td><a href="{{user.collectionViewUrl}}" target="_blank">iTunes</a></td>
+
+        <td><a target="_blank"><button type="button" class="btn btn-sm btn-danger"
+          (click)="remove(user.collectionId)">
+          <fa-icon [icon]="faMinus">
+          </fa-icon>
+        </button></a></td>
       </tr>
     </tbody>
   </table>
+  <div class="table-pagination mb-5">
+      <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    </div>
 </div>
+
 <app-footer></app-footer>

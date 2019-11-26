@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../../../services/playlist.service';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-playlist-view',
@@ -10,8 +12,15 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 export class PlaylistViewComponent implements OnInit {
 
   faSave = faSave;
+  faMinus = faMinus;
+
+  p: number = 1;
 
   constructor(private list: PlaylistService) { }
+
+  remove(collectionId: number) {
+    this.list.deleteSongFromPlaylist(collectionId);
+  }
 
   ngOnInit() {
     this.list.getPlaylist();

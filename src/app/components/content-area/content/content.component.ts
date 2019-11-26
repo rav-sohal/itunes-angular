@@ -58,7 +58,6 @@ export class ContentComponent {
     this.list.playlist.push(Object.assign({}, itunes));
     this.list.savePlaylist();
     console.log('Playlist - ', this.list.playlist);
-
   }
 
   refresh(): void {
