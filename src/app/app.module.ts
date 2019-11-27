@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playlist-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playl
     FormsModule,
     NgxPaginationModule,
     FontAwesomeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
