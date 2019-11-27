@@ -1,5 +1,8 @@
 <app-header></app-header>
 <div class="container">
+    <button type="button" class="btn btn-sm btn-primary mt-3 mb-3 float-right"
+    (click)="showDeleteButtons=!showDeleteButtons">Edit playlist
+  </button>
   <table class="table mt-3 mb-3">
     <thead class="thead-light">
       <tr>
@@ -9,7 +12,7 @@
         <th>Genre</th>
         <th>Price</th>
         <th>Listen</th>
-        <th>Edit</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,11 +24,11 @@
         <td>{{user.collectionPrice}}</td>
         <td><a href="{{user.collectionViewUrl}}" target="_blank">iTunes</a></td>
 
-        <td><a target="_blank"><button type="button" class="btn btn-sm btn-danger"
+        <td><div *ngIf="showDeleteButtons"><a target="_blank"><button type="button" class="btn btn-sm btn-danger"
           (click)="remove(user.collectionId)">
           <fa-icon [icon]="faMinus">
           </fa-icon>
-        </button></a></td>
+        </button></a></div></td>
       </tr>
     </tbody>
   </table>

@@ -13,7 +13,7 @@ export class PlaylistViewComponent implements OnInit {
 
   faSave = faSave;
   faMinus = faMinus;
-
+  showDeleteButtons: boolean = false;
   p: number = 1;
 
   constructor(private list: PlaylistService) { }
