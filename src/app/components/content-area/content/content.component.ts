@@ -20,6 +20,8 @@ export class ContentComponent {
   public results = [];
   public loading = false;
   public noData: any;
+  clicked = false;
+
 
   p: number = 1;
   faSearch = faSearch;
