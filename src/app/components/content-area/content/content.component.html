@@ -1,4 +1,4 @@
-<div class="hero">
+<div class="hero" *ngIf="!data">
   <div class="container">
     <h1 class="display-4 text-center header mb-3">SEARCH BOX</h1>
     <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
@@ -62,7 +62,7 @@
     <div class="row">
       <div class="col-md-8 col-sm-12">
         <button type="button" (click)="refresh()" class="btn btn-danger btn-lg mb-5">
-          <fa-icon [icon]="faRedo"></fa-icon> Start again
+          <fa-icon [icon]="faRedo"></fa-icon> Search again
         </button>
       </div>
       <div class="col-md-4 col-sm-12">
@@ -93,7 +93,8 @@
   <div *ngFor="let itunes of data | paginate: { itemsPerPage: 10, currentPage: p } | filter:filter; let i = index">
     <div class="row">
       <div class="col-lg-2 col-md-2 col-sm-12">
-        <img class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
+        <img [hidden]="!imageLoader" src="../../../../assets/images/rolling.gif"/>
+        <img [hidden]="imageLoader" (load)="this.imageLoader = false;" class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
       </div>
       <div class="col-md-8 col-lg-8 col-sm-12">
         <h2 class="mt-0 d-inline-block text-truncate trunc">{{itunes.collectionName}}</h2>

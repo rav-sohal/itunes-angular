@@ -15,15 +15,15 @@ import { PlaylistService } from '../../../services/playlist.service';
 })
 export class ContentComponent {
 
-  public data = [];
+  public data = '';
   public apiData: any;
   public results = [];
   public loading = false;
   public noData: any;
   clicked = false;
+  imageLoader = true;
 
-
-  p: number = 1;
+  //p: number = 1;
   faSearch = faSearch;
   faRedo = faRedo;
   faHeadphones = faHeadphones;
@@ -38,6 +38,7 @@ export class ContentComponent {
   ) { }
 
   getAll() {
+    this.data = '';
     this.loading = true;
     this.api.getAll(this.searchQuery).subscribe((results) => {
       console.log('Data is received - Result - ', results);
@@ -75,7 +76,7 @@ export class ContentComponent {
       this.loading = false;
     })
   }
-  
+
   ngOnInit() {
     this.list.getPlaylist();
   }
