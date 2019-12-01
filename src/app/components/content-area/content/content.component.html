@@ -48,13 +48,18 @@
   </div>
 </div>
 <ng-container *ngIf="noData">
-  <div class="container">
+  <div class="container mt-5">
     <div class="alert alert-danger fade show" role="alert">
       <strong>Holy guacamole!</strong> Your search did not bring any results!
       <button type="button" class="close" (click)="closeAlert()" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    <div class="col-md-8 col-sm-12 search-btn">
+        <button type="button" (click)="refresh()" class="btn btn-danger btn-lg ">
+          <fa-icon [icon]="faRedo"></fa-icon> Search again
+        </button>
+      </div>
   </div>
 </ng-container>
 <div class="container mt-5">

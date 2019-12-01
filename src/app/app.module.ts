@@ -12,6 +12,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playlist-view.component';
+import { NewsComponent } from './components/news/news/news.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playl
     FooterComponent,
     ContentComponent,
     HomeViewComponent,
-    PlaylistViewComponent
+    PlaylistViewComponent,
+    NewsComponent,
     ],
   imports: [
     BrowserModule,
@@ -32,6 +36,8 @@ import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playl
     NgxPaginationModule,
     FontAwesomeModule,
     Ng2SearchPipeModule,
+    CarouselModule,
+    BrowserAnimationsModule 
     ],
   providers: [],
   bootstrap: [AppComponent]

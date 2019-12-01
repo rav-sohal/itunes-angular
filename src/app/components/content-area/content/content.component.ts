@@ -7,7 +7,6 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../../../services/playlist.service';
 
-
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -23,7 +22,7 @@ export class ContentComponent {
   clicked = false;
   imageLoader = true;
 
-  //p: number = 1;
+  p: number = 1;
   faSearch = faSearch;
   faRedo = faRedo;
   faHeadphones = faHeadphones;
@@ -44,7 +43,7 @@ export class ContentComponent {
       console.log('Data is received - Result - ', results);
       this.data = results.results;
       this.loading = false;
-      if (this.data.length <= 0) {
+      if (this.data.length == 0) {
         this.noData = true;
       } else if (this.data.length) {
         this.noData = false;
