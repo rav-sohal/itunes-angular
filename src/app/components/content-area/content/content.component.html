@@ -97,10 +97,10 @@
   </ng-container>
   <div *ngFor="let itunes of data | paginate: { itemsPerPage: 10, currentPage: p } | filter:filter; let i = index">
     <div class="row">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        <img [hidden]="!imageLoader" src="../../../../assets/images/rolling.gif"/>
-        <img [hidden]="imageLoader" (load)="this.imageLoader = false;" class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
-      </div>
+        <div class="col-lg-2 col-md-2 col-sm-12">
+            <img (load)="$event.target.classList.add('image-loaded')" class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
+            <img class="spinner" src="../../../../assets/images/rolling.gif"/>
+         </div>
       <div class="col-md-8 col-lg-8 col-sm-12">
         <h2 class="mt-0 d-inline-block text-truncate trunc">{{itunes.collectionName}}</h2>
         <h4 class="mt-0 mb-3">{{itunes.artistName}}</h4>

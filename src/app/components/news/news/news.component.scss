@@ -27,7 +27,7 @@
     line-height: 1.25em;
     max-height: 6em;
     text-align: left;
-    margin-right: -1em;
+    //margin-right: -1em;
     padding-right: 1em;
   }
   .block-with-text:before {
@@ -46,6 +46,32 @@
     background: white;
   }
 
+/* mixin for multiline 2 */
+.block-with-text-2 {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.25em;
+  max-height: 5em;
+  text-align: left;
+  //margin-right: 1em;
+  padding-right: 1em;
+}
+.block-with-text-2:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.block-with-text-2:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
   .card {
       min-height: 500px;
   }
@@ -58,3 +84,7 @@
   .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: black;
 }
+
+.image-loaded + .spinner {
+    display:none;
+  }

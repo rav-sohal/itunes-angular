@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.image-loaded + .spinner {
+  display:none;
+}
+
 .hero {
     height: auto;
     width: 100%;
