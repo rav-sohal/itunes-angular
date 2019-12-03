@@ -10,11 +10,17 @@
   display:none;
 }
 
+.spinner {
+  margin-left: 50px;
+  margin-right: auto;
+}
+
+
 .hero {
-    height: auto;
+    height: 400px;
     width: 100%;
     padding-top: 50px;
-    //background-image: url('../../../../assets/images/background-image.jpg');
+    background-image: url('../../../../assets/images/background-image2.jpg');
     background-repeat: no-repeat;
     /* margin-bottom: 50px; */
     color: #ffffff;

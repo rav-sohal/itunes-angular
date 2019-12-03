@@ -14,6 +14,7 @@ export class NewsComponent {
   public noData: any;
   public results = [];
   p: number = 1;
+  public loading = false;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -40,8 +41,10 @@ export class NewsComponent {
   ) { }
 
   getNews() {
+    this.loading = true;
     this.api.getNews().subscribe((results) =>  {
        this.newsData = results.articles;
+       this.loading = false;
        console.log('JSON Response = ', JSON.stringify(results));
        console.log ('News component is connected');
     })

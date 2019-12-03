@@ -1,6 +1,6 @@
 <div class="hero" *ngIf="!data">
   <div class="container">
-    <h1 class="display-4 text-center header mb-3">SEARCH BOX</h1>
+    <h1 class="display-4 text-center header mb-3 mt-5">Search your favourite music</h1>
     <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
       recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
     <!-- <table class="table">
@@ -98,8 +98,10 @@
   <div *ngFor="let itunes of data | paginate: { itemsPerPage: 10, currentPage: p } | filter:filter; let i = index">
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-12">
+            <div class="spinner-container">
             <img (load)="$event.target.classList.add('image-loaded')" class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
             <img class="spinner" src="../../../../assets/images/rolling.gif"/>
+            </div>
          </div>
       <div class="col-md-8 col-lg-8 col-sm-12">
         <h2 class="mt-0 d-inline-block text-truncate trunc">{{itunes.collectionName}}</h2>
