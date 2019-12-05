@@ -45,7 +45,7 @@ export class NewsComponent {
     this.api.getNews().subscribe((results) =>  {
        this.newsData = results.articles;
        this.loading = false;
-       console.log('JSON Response = ', JSON.stringify(results));
+       //console.log('JSON Response = ', JSON.stringify(results));
        console.log ('News component is connected');
     })
   }

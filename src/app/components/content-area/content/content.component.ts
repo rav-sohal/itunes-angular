@@ -40,7 +40,8 @@ export class ContentComponent {
     this.data = '';
     this.loading = true;
     this.api.getAll(this.searchQuery).subscribe((results) => {
-      console.log('Data is received - Result - ', results);
+      //console.log('Data is received - Result - ', results);
+      console.log('Data is received');
       this.data = results.results;
       this.loading = false;
       if (this.data.length == 0) {
@@ -70,7 +71,8 @@ export class ContentComponent {
   Search() {
     this.api.getAll(this.searchQuery).subscribe((results) => {
       this.loading = true;
-      console.log('Data is received - Result - ', results);
+      //console.log('Data is received - Result - ', results);
+      console.log('Data is received');
       this.data = results.results;
       this.loading = false;
     })
