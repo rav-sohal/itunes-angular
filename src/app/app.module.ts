@@ -15,6 +15,8 @@ import { PlaylistViewComponent } from './views/playlist-view/playlist-view/playl
 import { NewsComponent } from './components/news/news/news.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     Ng2SearchPipeModule,
     CarouselModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    RouterModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
