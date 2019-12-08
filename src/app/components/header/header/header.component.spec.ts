@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header.component';
+import { RouterModule, Router } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -10,8 +12,11 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       imports: [ 
-        FontAwesomeModule
-      ]
+        FontAwesomeModule, 
+        RouterModule,
+        Router
+      ],
+      providers: [ AppRoutingModule ],
     })
     .compileComponents();
   }));
