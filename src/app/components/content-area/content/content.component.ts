@@ -7,6 +7,8 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../../../services/playlist.service';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
+
 export class ContentComponent {
 
   public data = '';

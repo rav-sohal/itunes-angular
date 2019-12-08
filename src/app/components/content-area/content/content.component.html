@@ -1,9 +1,11 @@
 <div class="hero" *ngIf="!data">
   <div class="container">
-    <h1 class="display-4 text-center header mb-3 mt-5">Search your favourite music</h1>
-    <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
-      recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
-    <!-- <table class="table">
+    <div class="search-box">
+      <div class="container">
+        <h1 class="display-4 text-center header mb-3 mt-5">Search your favourite music</h1>
+        <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
+          recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
+        <!-- <table class="table">
           <thead class="thead-light">
             <tr>
               <th>Artwork</th>
@@ -29,26 +31,28 @@
           </button>
        -->
 
-    <form>
-      <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-8">
-          <div class="form-group">
-            <label for="searchQuery" class="sr-only">Search</label>
-            <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
-              placeholder="Search iTunes..." required autocomplete="off">
+        <form>
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8">
+              <div class="form-group">
+                <label for="searchQuery" class="sr-only">Search</label>
+                <input type="text" name="searchQuery" [(ngModel)]="searchQuery" class="form-control form-control-lg"
+                  placeholder="Search iTunes..." required autocomplete="off">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4 mb-5">
+              <button type="button" (click)="getAll()" class="btn btn-info btn-block btn-lg">
+                <fa-icon [icon]="faSearch"></fa-icon> Search
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-12 col-md-4 col-lg-4 mb-5">
-          <button type="button" (click)="getAll()" class="btn btn-info btn-block btn-lg">
-            <fa-icon [icon]="faSearch"></fa-icon> Search
-          </button>
-        </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 <ng-container *ngIf="noData">
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
     <div class="alert alert-danger fade show" role="alert">
       <strong>Holy guacamole!</strong> Your search did not bring any results!
       <button type="button" class="close" (click)="closeAlert()" aria-label="Close">
@@ -56,10 +60,10 @@
       </button>
     </div>
     <div class="col-md-8 col-sm-12 search-btn">
-        <button type="button" (click)="refresh()" class="btn btn-danger btn-lg ">
-          <fa-icon [icon]="faRedo"></fa-icon> Search again
-        </button>
-      </div>
+      <button type="button" (click)="refresh()" class="btn btn-danger btn-lg ">
+        <fa-icon [icon]="faRedo"></fa-icon> Search again
+      </button>
+    </div>
   </div>
 </ng-container>
 <div class="container mt-5">
@@ -79,17 +83,12 @@
   <ng-container *ngIf="loading">
     <div class="loading-background">
       <div class="loading">
-          <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-            <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-              <animateTransform 
-                 attributeName="transform" 
-                 attributeType="XML" 
-                 type="rotate"
-                 dur="1s" 
-                 from="0 50 50"
-                 to="360 50 50" 
-                 repeatCount="indefinite" />
+        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+          y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+          <path fill="#fff"
+            d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50"
+              to="360 50 50" repeatCount="indefinite" />
           </path>
         </svg>
       </div>
@@ -97,12 +96,13 @@
   </ng-container>
   <div *ngFor="let itunes of data | paginate: { itemsPerPage: 10, currentPage: p } | filter:filter; let i = index">
     <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="spinner-container">
-            <img (load)="$event.target.classList.add('image-loaded')" class="align-self-start mr-5 mb-5 artwork" src="{{itunes.artworkUrl100}}" alt="image">
-            <img class="spinner" src="../../../../assets/images/rolling.gif"/>
-            </div>
-         </div>
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <div class="spinner-container">
+          <img (load)="$event.target.classList.add('image-loaded')" class="align-self-start mr-5 mb-5 artwork"
+            src="{{itunes.artworkUrl100}}" alt="image">
+          <img class="spinner" src="../../../../assets/images/rolling.gif" />
+        </div>
+      </div>
       <div class="col-md-8 col-lg-8 col-sm-12">
         <h2 class="mt-0 d-inline-block text-truncate trunc">{{itunes.collectionName}}</h2>
         <h4 class="mt-0 mb-3">{{itunes.artistName}}</h4>

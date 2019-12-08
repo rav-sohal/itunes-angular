@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../../../services/playlist.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,5 +17,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

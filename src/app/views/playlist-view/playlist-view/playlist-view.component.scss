@@ -5,10 +5,13 @@
 .my-pagination /deep/ .ngx-pagination .current {
   background: #232323;
   padding: 0.9rem 1.5rem;
+  
 }
 
 .my-pagination /deep/ .ngx-pagination {
   padding-left: 0px!important;
+  //margin-bottom: 150px;
+
 }
 
 .my-pagination /deep/ .ngx-pagination a, .ngx-pagination button{
@@ -18,4 +21,8 @@
 
 .ngx-pagination /deep/ .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
    content: '';
+}
+
+h2 {
+  font-weight: bold;
 }

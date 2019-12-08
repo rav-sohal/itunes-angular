@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { ContentComponent } from './content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 describe('ContentComponent', () => {
   let component: ContentComponent;
   let fixture: ComponentFixture<ContentComponent>;
@@ -13,7 +12,7 @@ describe('ContentComponent', () => {
       declarations: [ ContentComponent ],
       imports: [ 
         FormsModule,
-        FontAwesomeModule
+        FontAwesomeModule,
       ]
     })
     .compileComponents();
