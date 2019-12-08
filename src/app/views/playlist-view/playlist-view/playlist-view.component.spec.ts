@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../../../components/header/header/header.component';
+import { FooterComponent } from '../../../components/footer/footer/footer.component';
 import { PlaylistViewComponent } from './playlist-view.component';
+
 
 describe('PlaylistViewComponent', () => {
   let component: PlaylistViewComponent;
@@ -8,7 +10,9 @@ describe('PlaylistViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlaylistViewComponent ]
+      declarations: [ PlaylistViewComponent, HeaderComponent, FooterComponent], 
+      imports: [
+      ],
     })
     .compileComponents();
   }));

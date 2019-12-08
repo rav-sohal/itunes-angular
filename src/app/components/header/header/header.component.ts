@@ -3,7 +3,6 @@ import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../../../services/playlist.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

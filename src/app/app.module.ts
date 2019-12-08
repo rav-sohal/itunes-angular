@@ -26,7 +26,6 @@ import { RouterModule } from '@angular/router';
     HomeViewComponent,
     PlaylistViewComponent,
     NewsComponent,
-    
     ],
   imports: [
     BrowserModule,
