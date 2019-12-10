@@ -1,20 +1,35 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ContentComponent } from '../../components/content-area/content/content.component';
-import { HeaderComponent } from '../../components/header/header/header.component';
-import { FooterComponent } from '../../components/footer/footer/footer.component';
-import { NewsComponent } from '../../components/news/news/news.component';
-import { faHeadphones} from '@fortawesome/free-solid-svg-icons';
-
-
 import { HomeViewComponent } from './home-view.component';
+import { ApiService } from '../../services/api.service';
+import { Component } from '@angular/core';
+import { HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('HomeViewComponent', () => {
   let component: HomeViewComponent;
   let fixture: ComponentFixture<HomeViewComponent>;
 
+   @Component({selector: 'app-header', template: ''})
+   class AppHeaderStubComponent {}
+
+   @Component({selector: 'app-content', template: ''})
+   class AppContenStubComponent { }
+
+   @Component({selector: 'app-news', template: ''})
+   class AppNewsStubComponent {}
+
+   @Component({selector: 'app-footer', template: ''})
+   class AppFooterStubComponent {}
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeViewComponent, HeaderComponent, FooterComponent, ContentComponent, NewsComponent, faHeadphones],
+      declarations: [ HomeViewComponent,
+                 AppHeaderStubComponent,
+                 AppContenStubComponent,
+                 AppNewsStubComponent,
+                 AppFooterStubComponent
+      ],
+      providers: [ApiService],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));
