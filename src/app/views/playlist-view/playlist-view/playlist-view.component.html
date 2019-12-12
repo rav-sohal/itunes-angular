@@ -25,7 +25,7 @@
         <td>{{user.collectionPrice}}</td>
         <td><a href="{{user.collectionViewUrl}}" target="_blank">iTunes</a></td>
 
-        <td><div *ngIf="showDeleteButtons"><a target="_blank"><button type="button" class="btn btn-sm btn-danger"
+        <td><div *ngIf="showDeleteButtons"><a target="_blank"><button type="button" class="btn btn-sm btn-danger edit-button"
           (click)="remove(user.collectionId)">
           <fa-icon [icon]="faMinus">
           </fa-icon>

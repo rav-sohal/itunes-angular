@@ -11,15 +11,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" [routerLink]="['/home']" href="#">Search</a>
-        <a class="nav-link" [routerLink]="['/playlist']" href="#">Playlist <b>{{list.playlist.length}}</b></a>
+        <a class="nav-link" [routerLink]="['/playlist']" href="#">My Playlist</a>
       </div>
-      <!-- <span class="navbar-text">
-          <button type="button" class="btn btn-dark float-right" [routerLink]="['/playlist']">
-              <b class="mr-2">Playlist</b> <span class="badge badge-light">{{list.playlist.length}}</span>
-            </button>
-        </span> -->
+  
     </div>
-    
+    <span class="navbar-text d-md-none d-lg-block">
+        <button type="button" class="btn btn-dark">
+            <b class="mr-2">Playlist</b> <span class="badge badge-light">{{list.playlist.length}}</span>
+          </button>
+      </span> 
   </div>
 </nav>
 

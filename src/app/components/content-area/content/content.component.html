@@ -2,9 +2,8 @@
   <div class="container">
     <div class="search-box">
       <div class="container">
-        <h1 class="display-4 text-center header mb-3 mt-5">Search your favourite music</h1>
-        <p class="mb-5">Per ad sumo nullam liberavisse, aeque invenire sea te, eos debet delectus detraxit ei. Dicam
-          recusabo nec in, molestiae tincidunt reprehendunt mea an.</p>
+        <h1 class="display-4 text-center header mb-4 mt-5">Search your favourite music</h1>
+        <h6 class="mb-5 text-center colour-grey">{{intro}}</h6>
         <!-- <table class="table">
           <thead class="thead-light">
             <tr>
@@ -68,6 +67,8 @@
 </ng-container>
 <div class="container mt-5">
   <div class='filter-bar' *ngIf='data.length >= 1'>
+    <h2 class="mt-5 mb-5">Search results</h2>
+
     <div class="row">
       <div class="col-md-8 col-sm-12">
         <button type="button" (click)="refresh()" class="btn btn-danger btn-lg mb-5">

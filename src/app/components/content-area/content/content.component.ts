@@ -19,6 +19,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 export class ContentComponent {
 
+  intro = "This is a iTunes api based project, where you can search for artists and songs and add to a playlist and then save that playlist. When in the playlist view the user can also link out to the iTunes store.";
+
   public data = '';
   public apiData: any;
   public results = [];
