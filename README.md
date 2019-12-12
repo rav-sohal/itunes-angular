@@ -2,12 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
 
+![Home](https://github.com/rav-sohal/itunes-angular/blob/master/src/assets/images/itunes-home.png)
+
 # Tech Stack
 
-Angular
-SASS
-Bootstrap
-iTunes Api
+- Angular
+- SASS
+- Bootstrap
+- iTunes Api
+- News Api
 
 ## Development server
 
