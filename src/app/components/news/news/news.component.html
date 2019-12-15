@@ -34,7 +34,7 @@
         <div class="col-4" *ngFor="let news of newsData">
             <ng-template carouselSlide [id]="news.id">
             <div class="card mt-3 mb-3">
-                <img [src]="news.src" [title]="news.title" src="{{news.urlToImage}}" class="card-img-top news-img" alt="image">
+                <img [src]="news.src" [title]="news.title" src="{{news.urlToImage}}" class="card-img-top news-img" alt="image" onerror="this.src='../../../../assets/images/img-error.jpg';">
                 <div class="card-body">
                     <h5 class="mt-0 block-with-text-2">{{news.title}}</h5>
                   <p class="card-text block-with-text">{{news.content}}</p>
