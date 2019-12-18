@@ -36,8 +36,10 @@
             <div class="card mt-3 mb-3">
                 <img [src]="news.src" [title]="news.title" src="{{news.urlToImage}}" class="card-img-top news-img" alt="image" onerror="this.src='../../../../assets/images/img-error.jpg';">
                 <div class="card-body">
-                    <h5 class="mt-0 block-with-text-2">{{news.title}}</h5>
-                  <p class="card-text block-with-text">{{news.content}}</p>
+                  <h5 class="mt-0 block-with-text-2">{{news.title}}</h5>
+                  <p class="card-text block-with-text">{{news.content || 'No text content available'}}</p>
+
+                  
                   <a href="{{news.url}}" class="card-link mb-3" target="_blank">Read more</a>
                 </div>
               </div>

@@ -10,6 +10,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class NewsComponent {
 
+  public noContent = 'no content';
   public newsData = [];
   public noData: any;
   public results = [];
